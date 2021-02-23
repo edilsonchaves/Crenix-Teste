@@ -16,7 +16,6 @@ public class AnimalController : MonoBehaviour
     // Update is called once per frame
     public void ChangeTextAnimals(bool statusGame)
     {
-        Debug.Log(statusGame);
         if (statusGame)
         {
             textAnimal.text = texts[1];
