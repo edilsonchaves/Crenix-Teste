@@ -190,9 +190,9 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 6de3944bb0d939147912272798535f7b,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 6de3944bb0d939147912272798535f7b, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: ed6777d9258fee3468955362e9f26bb6, type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 21300000, guid: ed6777d9258fee3468955362e9f26bb6, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 6de3944bb0d939147912272798535f7b, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 6de3944bb0d939147912272798535f7b, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7ad5b1e48c93a4db067921b2888679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slots:
+  slotsMachine:
   - _objetoSlot: {fileID: 0}
     _isBusy: 0
   - _objetoSlot: {fileID: 0}
@@ -293,12 +293,12 @@ MonoBehaviour:
   - _objetoSlot: {fileID: 0}
     _isBusy: 0
   animalController: {fileID: 771089288}
-  positionsSlot:
-  - {fileID: 1796103157}
-  - {fileID: 1599705119}
-  - {fileID: 432097610}
-  - {fileID: 509761851}
-  - {fileID: 595012611}
+  positionsInventorySlot:
+  - {fileID: 550901731}
+  - {fileID: 685403460}
+  - {fileID: 469441358}
+  - {fileID: 1982160478}
+  - {fileID: 1416759796}
 --- !u!224 &252169991
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1161,8 +1161,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 794097966}
-  - {fileID: 1863232183}
   - {fileID: 771089286}
+  - {fileID: 1863232183}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1294,7 +1294,7 @@ RectTransform:
   - {fileID: 843671730}
   - {fileID: 13201178}
   m_Father: {fileID: 684196828}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7, y: 0.1}
   m_AnchorMax: {x: 1, y: 0.9}
@@ -1323,7 +1323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   texts:
   - ENCAIXE AS ENGRENAGENS EM QUALQUER ORDEM!
-  - "YAY, PARAB\xC9NS, TASK CONCLUIDA!"
+  - YAY, PARABENS, TASK CONCLUIDA!
   textAnimal: {fileID: 1290738861}
 --- !u!1 &794097965
 GameObject:
@@ -1640,10 +1640,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _directionRotation: 0
+  _slotStoragePiece: {fileID: 0}
   velRotation: 60
   selectedPieceTransform: {fileID: 360170728}
-  positionSlotPiece: 0
-  typeSlot: 
 --- !u!225 &939560066
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2077,10 +2076,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _directionRotation: 0
+  _slotStoragePiece: {fileID: 0}
   velRotation: 60
   selectedPieceTransform: {fileID: 360170728}
-  positionSlotPiece: 0
-  typeSlot: 
 --- !u!225 &1609715929
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2182,10 +2180,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _directionRotation: 0
+  _slotStoragePiece: {fileID: 0}
   velRotation: 60
   selectedPieceTransform: {fileID: 360170728}
-  positionSlotPiece: 0
-  typeSlot: 
 --- !u!225 &1699917497
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2376,10 +2373,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _directionRotation: 0
+  _slotStoragePiece: {fileID: 0}
   velRotation: 60
   selectedPieceTransform: {fileID: 360170728}
-  positionSlotPiece: 0
-  typeSlot: 
 --- !u!225 &1849399782
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2424,7 +2420,7 @@ RectTransform:
   - {fileID: 587977142}
   - {fileID: 360170728}
   m_Father: {fileID: 684196828}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.1, y: 0}
   m_AnchorMax: {x: 0.6, y: 1}
@@ -2763,10 +2759,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _directionRotation: 0
+  _slotStoragePiece: {fileID: 0}
   velRotation: 60
   selectedPieceTransform: {fileID: 360170728}
-  positionSlotPiece: 0
-  typeSlot: 
 --- !u!225 &2081090892
 CanvasGroup:
   m_ObjectHideFlags: 0

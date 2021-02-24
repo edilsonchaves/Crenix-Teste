@@ -5,12 +5,9 @@ using UnityEngine.EventSystems;
 public class SlotsController : MonoBehaviour
 {
     //Script com a função de controlar os 5 slots presentes no jogo;
-    public Slot[] slots = new Slot[5];
-    public AnimalController animalController;
-
-
-
-    public Transform[] positionsSlot;
+    [Tooltip("Status das 5 posições no Slot Machine")]public SlotMachineSpace[] slotsMachine = new SlotMachineSpace[5];
+    [Tooltip("Script Controlador Mascote")]public AnimalController animalController;
+    [Tooltip("Game Objects dos Slots do Inventorio")] public GameObject[] positionsInventorySlot;
     private void Update()
     {
         animalController.ChangeTextAnimals(allSlotsBusy());
@@ -19,7 +16,7 @@ public class SlotsController : MonoBehaviour
 
     public bool allSlotsBusy()
     {
-        foreach (Slot slot in slots)
+        foreach (SlotMachineSpace slot in slotsMachine)
         {
             if(!slot.IsBusy)
             return false;
@@ -28,12 +25,26 @@ public class SlotsController : MonoBehaviour
     }
     public void ResetAllSlots()
     {
-        foreach (Slot slot in slots)
+        foreach (SlotMachineSpace slot in slotsMachine)
+        {
+            if (slot.ObjetoSlot != null)
+            {
+                for(int i = 0; i< positionsInventorySlot.Length; i++)
+                {
+                    if (positionsInventorySlot[i].transform.childCount == 0)
+                    {
+                        slot.ObjetoSlot.GetComponent<Piece>().SetSlot(slot.ObjetoSlot, positionsInventorySlot[positionsInventorySlot[i].GetComponent<Slot>().NumSlot].GetComponent<Slot>());
+                        i = positionsInventorySlot.Length;
+                    }
+                }
+            }
+        }
+        foreach (SlotMachineSpace slot in slotsMachine)
         {
             slot.IsBusy = false;
         }
         RotationPieces(allSlotsBusy());
-        foreach (Slot slot in slots)
+        foreach (SlotMachineSpace slot in slotsMachine)
         {
             //peça precisa retornar para o seu lugar de origem
             slot.ObjetoSlot = null;
@@ -41,20 +52,20 @@ public class SlotsController : MonoBehaviour
     }
     public void OcupySlot(GameObject piece,int numPosition)
     {
-        slots[numPosition].ObjetoSlot = piece;
-        slots[numPosition].IsBusy = true;
+        slotsMachine[numPosition].ObjetoSlot = piece;
+        slotsMachine[numPosition].IsBusy = true;
         RotationPieces(allSlotsBusy());
     }
     public void DesocupySlot(int numPosition)
     {
-        slots[numPosition].ObjetoSlot = null;
-        slots[numPosition].IsBusy = false;
+        slotsMachine[numPosition].ObjetoSlot = null;
+        slotsMachine[numPosition].IsBusy = false;
         RotationPieces(allSlotsBusy());
     }
     public void RotationPieces(bool isAllSlotBusy)
     {
         int value=0;
-       foreach (Slot slot in slots)
+       foreach (SlotMachineSpace slot in slotsMachine)
        {
             if (isAllSlotBusy)
             {
@@ -80,7 +91,7 @@ public class SlotsController : MonoBehaviour
     }
 
     [System.Serializable]
-    public class Slot
+    public class SlotMachineSpace
     {
         [SerializeField]GameObject _objetoSlot;
         [SerializeField] bool _isBusy;
@@ -96,7 +107,7 @@ public class SlotsController : MonoBehaviour
             set { _isBusy = value; }
         }
 
-        public Slot()
+        public SlotMachineSpace()
         {
             _objetoSlot = null;
             _isBusy = false;

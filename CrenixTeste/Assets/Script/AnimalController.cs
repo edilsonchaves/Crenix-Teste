@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class AnimalController : MonoBehaviour
 {
 
-    [TextArea(1,3)]public string[] texts;
-    public Text textAnimal;
+    [TextArea(1,3)][SerializeField]string[] texts;
+    [SerializeField]Text textAnimal;
     // Start is called before the first frame update
     void Start()
     {
